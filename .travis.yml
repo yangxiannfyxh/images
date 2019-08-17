@@ -8,11 +8,7 @@ services:
 install: docker images 
 env:
   global: 
-  - reg=registry.cn-hangzhou.aliyuncs.com
   - repo=registry.cn-hangzhou.aliyuncs.com/nfyxhan/gcr
-  - registry=gcr.io
-  - tag="@sha256:48cfcc0ec4898143a79e6b014f8011781cfffb543a845c4d138886d362d71492"
-  - image=tekton-releases/github.com/tektoncd/pipeline/cmd/webhook
-  - image_short=tektoncd_webhook
+  - registry=registry.cn-hangzhou.aliyuncs.com
 script:
 - bash sync_image.sh
