@@ -1,7 +1,14 @@
-#!/bin/bash
-full_image=${registry}/${image}${tag}
-sync_image=${repo}:${image_short}
-docker pull ${full_image}
-docker login --username=${username} --password=${password} ${reg}
-docker tag ${full_image} ${sync_image}
-docker push ${sync_image}
+#!/usr/bin/env bash
+set -e
+
+docker login --username=${username} --password=${password} ${registry}
+
+all_image=`cat image.list`
+
+for image in ${all_image} ; do
+    name=`echo ${image} | awk -F "@" '{ print $1}'| awk -F "/" '{ print $NF }'`
+    sync_image=${repo}:${prefix}${name}
+    docker pull ${full_image}
+    docker tag ${full_image} ${sync_image}
+    docker push ${sync_image}
+done
