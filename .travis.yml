@@ -1,2 +1,21 @@
-language: go
-install: git pull gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/webhook@sha256:48cfcc0ec4898143a79e6b014f8011781cfffb543a845c4d138886d362d71492
+language: shell
+# cache:
+#   directories:
+#   - "$HOME/google-cloud-sdk/"
+#   - "google_containers_mirror_completed_list"
+services:
+- docker
+install: docker images 
+env:
+  global: 
+  - reg=registry.cn-hangzhou.aliyuncs.com
+  - repo=registry.cn-hangzhou.aliyuncs.com/nfyxhan/gcr
+  - registry=gcr.io
+  - tag="@sha256:48cfcc0ec4898143a79e6b014f8011781cfffb543a845c4d138886d362d71492"
+  - image=tekton-releases/github.com/tektoncd/pipeline/cmd/webhook
+  - image_short=tektoncd_webhook
+script:
+- docker pull ${registy}/${image}${tag}
+- docker login --username=${username} --password=${password} ${reg}
+- docker tag ${registy}/${image}${tag} ${repo}:${image_short}
+- docker push ${repo}:${image_short}
