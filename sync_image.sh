@@ -1,5 +1,7 @@
 #!/bin/bash
-docker pull ${registry}/${image}${tag}
+full_image=${registry}/${image}${tag}
+sync_image=${repo}:${image_short}
+docker pull 
 docker login --username=${username} --password=${password} ${reg}
-docker tag ${registy}/${image}${tag} ${repo}:${image_short}
-docker push ${repo}:${image_short}
+docker tag ${full_image} ${sync_image}
+docker push ${sync_image}
