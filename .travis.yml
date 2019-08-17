@@ -15,7 +15,7 @@ env:
   - image=tekton-releases/github.com/tektoncd/pipeline/cmd/webhook
   - image_short=tektoncd_webhook
 script:
-- docker pull ${registy}/${image}${tag}
+- docker pull ${registry}/${image}${tag}
 - docker login --username=${username} --password=${password} ${reg}
 - docker tag ${registy}/${image}${tag} ${repo}:${image_short}
 - docker push ${repo}:${image_short}
