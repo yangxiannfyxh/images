@@ -1,2 +1,2 @@
-@k8s.gcr.io/kube-@/kube-
-apiserver@v1.17.12
+@k8s.gcr.io@
+kube-apiserver@v1.17.12
