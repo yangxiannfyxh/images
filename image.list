@@ -1,4 +1,5 @@
 @k8s.gcr.io@
+k8s-dns-node-cache:1.15.12
 pause:3.1
 cluster-proportional-autoscaler-amd64:1.7.1
 kube-apiserver:v1.17.12
