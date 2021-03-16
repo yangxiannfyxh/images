@@ -1,2 +1,6 @@
 @k8s.gcr.io@
 kube-apiserver:v1.17.12
+kube-kube-controller-manager:v1.17.12
+kube-scheduler:v1.17.12
+kube-proxy:v1.17.12
+cluster-proportional-autoscaler-amd64:1.7.1
