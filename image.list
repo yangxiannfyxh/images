@@ -1,2 +1,2 @@
-@gcr.io/tekton-releases/github.com/tektoncd/dashboard/cmd@tektoncd_
-dashboard@sha256:1bae097b49afa77fcbf9415a2e3484a6636818abf04d05dc817dc2f176510827
+@k8s.gcr.io/kube-@/kube-
+apiserver@v1.17.12
